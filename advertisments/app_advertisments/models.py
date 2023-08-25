@@ -43,6 +43,11 @@ class Advertisments(models.Model):
 
         return self.updated_time.strftime("%d.%m.%Y в %H:%M:%S")
 
+    @admin.display(description = 'Фотография')
+    def photo_html(self):
+        if self.image:
+            return format_html('<img scr = "{url}" style = "width: 75px; height: 75px;">', url = self.image.url)
+
 
 
 
