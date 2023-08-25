@@ -16,6 +16,7 @@ class Advertisments(models.Model):
     created_time = models.DateTimeField(auto_now_add = True)
     updated_time = models.DateTimeField(auto_now = True)
     user = models.ForeignKey(User, verbose_name = 'Пользователь', on_delete = models.CASCADE)
+    image = models.ImageField("Изображение", upload_to = "advertisements/")
 
     # домашка на 7 занятие
     def __str__(self):
