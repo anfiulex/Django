@@ -18,9 +18,9 @@ def advertisement_post(request):
     if request.method == "POST":
         form = AdvertisementForm(request.POST, request.FILES)
         if form.is_valid():
-            advertisement = Advertisments(**form.cleaned_data)
-            advertisement.user = request.user
-            advertisement.save()
+            new_adv = form.save(commit = False)
+            new_adv.user = request.user
+            new_adv.save()
             url = reverse('main-page')
             return redirect(url)
     else:
